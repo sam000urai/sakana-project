@@ -1,0 +1,499 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 15px;
+  /* ユーザー名と画像の間に15pxの間隔を追加 */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.g327 {
+  border-color: #302f30;
+}
+
+.Avenir {
+  font-family: AvenirNextW10-Bold;
+  font-display: swap;
+}
+
+.clearNav {
+  backdrop-filter: saturate(180%) blur(5px) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.grr {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.greyC {
+  filter: gray;
+  -webkit-filter: grayscale(100%);
+  transition: 0.4s;
+}
+
+.greyC:hover {
+  filter: none;
+  -webkit-filter: none;
+  transition: 0.4s;
+}
+
+.Avenir {
+  font-family: AvenirNextW10-Bold;
+  font-display: swap;
+}
+
+.centered-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+  /* 青のボーダー */
+  border-radius: 10px;
+  /* 10pxの角丸 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  /* 他の要素の上に表示するための z-index 値 */
+  font-weight: bold;
+  /* テキストを太字に */
+}
+
+.centered-alert-add {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  /* 赤い背景色 */
+  color: rgb(247, 13, 13);
+  /* 白いテキスト */
+  padding: 16px;
+  border: 1px solid rgba(163, 71, 71, 0.2);
+  /* 薄いボーダー */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  font-weight: bold;
+}
+
+
+/* 削除アラートのスタイル */
+.remove-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  /* 背景を白に変更 */
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  font-weight: bold;
+  color: black;
+  /* 文字色を黒に変更 */
+}
+
+.textbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 300px) {
+  .textbox {
+    width: 50%;
+    /* 幅を広くする */
+    top: 50%;
+    /* 上部の位置を調整する */
+    max-height: 80%;
+    /* 最大の高さを設定する */
+    overflow-y: auto;
+    /* 必要であればスクロールを追加する */
+  }
+}
+
+.hiddenClassName {
+  display: none;
+}
+
+.visibleClassName {
+  display: block;
+}
+
+.book-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.centered-content-container {
+  display: flex;
+  flex-direction: column;
+  /* 子要素を縦方向に並べる */
+  align-items: center;
+  /* 子要素を水平方向に中央揃え */
+  justify-content: center;
+  /* 子要素を垂直方向に中央揃え */
+}
+
+.centered-button-container {
+  display: flex;
+  align-items: left;
+  /* 垂直方向の中央揃え */
+  justify-content: left;
+  /* 水平方向の中央揃え */
+}
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.category-tab {
+  flex: 1 0 200px;
+  /* 120px は一律の大きさ。お好みで調整してください。 */
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #d0d0d0;
+  margin: 2px;
+  box-sizing: border-box;
+  font-size: 14px;
+  /* フォントサイズを設定 */
+}
+
+.category-tab:hover {
+  background-color: #e0e0e0;
+}
+
+.button-design {
+  margin-left: 8px;
+  background-color: rgb(61, 124, 206);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.button-design:hover {
+  background-color: rgb(14, 66, 133);
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* スマホビューのスタイル */
+@media (max-width: 640px) {
+  .navbar-nav {
+    display: flex;
+  }
+
+  .navbar-dropdown {
+    display: block;
+  }
+
+  .textbox {
+    width: 600px;
+    /* 画面幅が600px以上の場合には、テキストボックスの幅を600pxに */
+  }
+}
+
+/* スマホ版の時のスタイル */
+@media (max-width: 768px) {
+  .category-tab {
+    flex: 1 0 48%;
+    /* 画面内に収まるように調整。お好みで変更してください。 */
+    font-size: 15px;
+    /* スマホ向けにフォントサイズをさらに小さく */
+  }
+}
+
+/* デスクトップビューのスタイル */
+@media (min-width: 641px) {
+  .navbar-nav {
+    display: flex;
+  }
+
+  .navbar-dropdown {
+    display: none;
+  }
+}
+
+.dropdown-menu {
+  color: #000;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  /* 左からではなく、右から位置を指定します。 */
+  z-index: 1000;
+  display: block;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+@media only screen and (max-width: 480px) {
+  .textbox {
+    width: 90%;
+    /* 画面幅の90%に調整 */
+    max-height: 90vh;
+    /* 画面の高さの90%までとする */
+    overflow-y: auto;
+    /* 必要に応じてスクロールバーを表示 */
+    padding: 10px;
+    /* 内部の余白を10pxに調整 */
+  }
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #eee;
+  color: #000;
+}
+
+
+
+/* プロフィール*/
+.profile-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.display-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 480px) {
+  .display-name {
+    font-size: 18px;
+  }
+}
+
+.display-name-input,
+.photo-url-input {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  /* 枠線の太さと色を指定 */
+  padding: 10px;
+  /* テキストボックス内のパディングを指定 */
+  margin-bottom: 15px;
+  /* 他の要素との間隔を指定 */
+  width: 100%;
+  /* テキストボックスの幅を指定 */
+  border-radius: 5px;
+  /* テキストボックスの角を丸める */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  /* アイテムを中央揃えにする */
+  gap: 16px;
+  /* 画像と名前の間のスペース */
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 10px;
+  object-fit: cover;
+}
+
+.edit-button,
+.save-button {
+  background-color: rgb(61, 124, 206);
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  /* ここで角を丸くしています */
+}
+
+/* モバイルデバイス向けのスタイル */
+@media (max-width: 600px) {
+
+  .cancel-button,
+  .edit-button,
+  .save-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    /* 他のスタイル調整もここに追加できます */
+  }
+}
+
+.profile-body {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-right: 20px;
+}
+
+.section-title {
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  overflow-y: auto;
+  /* モーダル内の縦方向のオーバーフローをスクロール可能に */
+  max-height: 70vh;
+  /* モーダルの最大高さを画面の70%に設定 */
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal-content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.profile-image-modal {
+  width: 70px;
+  /* アイコン画像の幅を40pxに設定 */
+  height: 70px;
+  /* アイコン画像の高さを40pxに設定 */
+  object-fit: cover;
+  /* 画像がコンテナにフィット */
+  margin-right: 10px;
+  border-radius: 50%;
+  /* 画像を円形に */
+  overflow: hidden;
+  /* コンテナを超える部分を隠す */
+
+}
+
+@media (max-width: 600px) {
+  .profile-image-modal {
+    width: 50px;
+    /* Width for screens smaller than 600px */
+    height: 50px;
+    /* Height for screens smaller than 600px */
+  }
+}
+
+.cancel-button {
+  background-color: #fff;
+  /* 赤色の背景 */
+  color: rgba(0, 0, 0, 5.5);
+  /* テキストは白色 */
+  padding: 10px 20px;
+  /* パディングを追加 */
+  margin-left: 10px;
+  /* 保存ボタンからのマージンを追加 */
+  cursor: pointer;
+  /* カーソルをポインターに */
+  border: none;
+  /* ボーダーを削除 */
+}
+
+.shelf-title {
+  font-weight: bold;
+  /* 太字にする */
+  margin-bottom: 20px;
+  /* 本棚一覧との間隔をあける */
+}
+
+.booklist-title {
+  font-weight: bold;
+  /* 太字にする */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* 本棚一覧との間隔をあける */
+}
+
+.follow-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.following,
+.followers {
+  flex: 1;
+  text-align: center;
+  margin-left: 0px;
+  /* or margin-left for .followers */
+}
